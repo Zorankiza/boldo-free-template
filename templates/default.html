@@ -4,12 +4,10 @@
 {% include "./partials/head.html" %}
 
 <body>
-  {% include "./partials/header.html" %}
-
   <main>
     {% block content %}
-    <!-- Ovde se ubacuje html od strane koja koristi ovaj layout -->
     {% include "./partials/navbar.html" %}  
+    
     {% endblock %}
   </main>
 

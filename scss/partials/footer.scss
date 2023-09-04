@@ -1,83 +1,93 @@
-footer {
-    background-color: #262626;
-    padding: 50px 0 50px 0;
-
-}
-//znam da mogu da koristim bootstrap ali hocu da vezbam sa gridom //
-.footer_main_content {
-
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr  ;
-
-    a {
-        font-family: 'RobotoMedium', sans-serif;
-        color: #fff;
-        font-size: 16px;
-        font-weight: 300;
-        text-decoration: none; 
-    }
-     
-    a:hover {
-        filter: brightness(80%);
-    }
-
-
-    ._menu{
+footer{
+    margin: 0 auto;
+    
+    .footer_call_to_action{
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        padding: 0 15px 50px 0;
-        border-bottom: solid #fff 1px;
-        margin-bottom: 50px;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #0A2640;
+        border-radius: 20px;
+        height: 390px;
+        text-align: center;
+        margin-top: 1000px;
+        margin-bottom: 100px;
+        
+        h3 {
+            width: 650px;
+        }
 
-        span {
-            margin-bottom: 25px;
-            border-bottom: solid #fff 1px;
-            padding-bottom: 25px;
-            max-width: 80%;
+        
+        .call_to_action{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            width: 600px;
             a {
-                font-size: 24px;
-                font-weight: 400;
+                background-color: #65E4A3;
+                border-radius: 56px;
+                padding: 16px 56px;
+                
+                p {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+            }
+
+            input {
+                background-color: white;
+                border-radius: 56px;
+                padding: 16px;
+                width: 370px; 
+                
+            }
+
+        }
+       
+    }
+
+
+    .footer_sub_content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .footer_social{
+            width: 300px;
+            svg {
+                margin-bottom: 40px;
+            }
+            p {
+                margin-bottom: 64px;
             }
         }
+    }
 
-        span:last-of-type{
-            max-width: 100%;
+    .footer_flex {
+       display: flex;
+       flex-direction: column;
+       width: 150px;
+       
+
+      
+       h4,a {
+        margin-bottom: 40px;
+    
+       }
+
+       h4 {
+        font-weight: 600;
+       }
+       
+      
+
+       a span{
+        background-color: #65E4A3;
+        padding: 1px 14px;
+        border-radius: 120px;
+        
         }
-
     }
 
     
-    ._sub_menu{
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
-        p {
-            color: #fff;
-            font-size: 17px;
-            font-weight: 500;
-            margin-bottom: 50px;
-        }
-        
-       
-     
-    } 
-    ._sub_menu:last-of-type{
-        p {
-            font-size: 20px;
-            
-        }
-    }
-
-
-
-    ._menu_after {
-
-        a {
-            font-size: 24px;
-            font-weight: 400;
-        }
-    }
 }
-

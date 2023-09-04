@@ -1,66 +1,29 @@
-
-.header {
-    height: 700px;
-    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url("https://images.ctfassets.net/b3v3zpfm7k4n/47aHETvddxCk2aAywFV3rD/e55e4173f25744055280c4c11897b37e/fistbump-over-desk__1_.webp?w=1600&h=1092&q=50") no-repeat;
-    background-position: center;
-    padding-top: 20px;
-}
-
-.navbar {
-    margin-bottom: 150px;
-
-    ul {
+header {
+    background-color:#0A2640;
+    height: 615px;
+    div {
+        color: white;
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
         align-items: center;
-    }
 
-    li {
-        margin-left: 50px;
+        h2 {
+            padding-bottom: 12px;
+        }
+
+        h1 {
+            padding-bottom: 30px;
+        }
+
+        p {
+            width: 700px;
+        }
+
         
     }
-
-    a {
-        font-family: 'RobotoMedium', sans-serif;
-        color: #fff;
-        font-size: 17px;
-        font-weight: 700;
-    }
-
-    .hover-underline-animation {
-        display: inline-block;
-        position: relative;
-        color: #fff;
-      }
-      
-      .hover-underline-animation:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #fff;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
-      
-      .hover-underline-animation:hover:after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-
+    
+    
 }
 
-.m-header {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    color: #fff;
-    line-height: 1.1;
-
-    h1 {
-        margin-bottom: 100px;
-    }
-}
