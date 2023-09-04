@@ -1,0 +1,28 @@
+nav {
+    margin: 0 auto;
+    padding: 60px 0 70px 0 ;
+   
+    background-color: #0A2640;
+
+    .nav_bar {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 419px;
+            
+
+            :nth-child(4) {
+                background-color: white;
+                color:#0A2640;
+                border-radius: 24px;
+                padding: 8px 40px;
+            }
+        }
+
+    }
+}

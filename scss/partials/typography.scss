@@ -7,12 +7,36 @@ h2 {
    
 }
 h3 {
-    font-size: 22px;
+    font-size: 48px;
     font-weight: 300;
     color: #111;
     line-height: 1.6;
 }
 
+
+p {
+    font-size: 16px;
+}
+
+.white {
+    color: white;
+}
+
+.dark_blue {
+    color: #0A2640;
+}
+
+
+.grey {
+    color: #777777;
+    
+}
+
+
+span {
+    font-size: 13px;
+    
+}
 
 @media (min-width: 992px) {
     h1 {
@@ -30,3 +54,30 @@ h3 {
         font-size: 44px;
     }
 }
+
+
+
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.50s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }

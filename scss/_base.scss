@@ -28,8 +28,11 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
+ol, ul, a {
 	list-style: none;
+	text-decoration: none;
+	
+	
 }
 blockquote, q {
 	quotes: none;
@@ -45,7 +48,8 @@ table {
 }
 
 .container {
-	max-width: 90%;
+	
+	max-width: 1200px;
 }
 
 h1,h2,h3,h4,p {
@@ -53,20 +57,9 @@ h1,h2,h3,h4,p {
 	line-height: 1.2;
 }
 
-
-
-.logo {
-	svg {
-        width: 122px;
-        height: 22px;
-    }
-
-    svg:hover {
-        filter: brightness(80%);
-      }
-
-    .logo {
-        text-decoration: none;
-    }
+a {
+	font-size: 16px;
 }
+
+
 
