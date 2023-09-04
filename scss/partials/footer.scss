@@ -1,0 +1,83 @@
+footer {
+    background-color: #262626;
+    padding: 50px 0 50px 0;
+
+}
+//znam da mogu da koristim bootstrap ali hocu da vezbam sa gridom //
+.footer_main_content {
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr  ;
+
+    a {
+        font-family: 'RobotoMedium', sans-serif;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 300;
+        text-decoration: none; 
+    }
+     
+    a:hover {
+        filter: brightness(80%);
+    }
+
+
+    ._menu{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 15px 50px 0;
+        border-bottom: solid #fff 1px;
+        margin-bottom: 50px;
+
+        span {
+            margin-bottom: 25px;
+            border-bottom: solid #fff 1px;
+            padding-bottom: 25px;
+            max-width: 80%;
+            a {
+                font-size: 24px;
+                font-weight: 400;
+            }
+        }
+
+        span:last-of-type{
+            max-width: 100%;
+        }
+
+    }
+
+    
+    ._sub_menu{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        p {
+            color: #fff;
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+        
+       
+     
+    } 
+    ._sub_menu:last-of-type{
+        p {
+            font-size: 20px;
+            
+        }
+    }
+
+
+
+    ._menu_after {
+
+        a {
+            font-size: 24px;
+            font-weight: 400;
+        }
+    }
+}
+

@@ -1,0 +1,29 @@
+{
+  "name": "Training",
+  "version": "1.0.0",
+  "description": "Training",
+  "main": "index.html",
+  "scripts": {
+    "test": "ok"
+  },
+  "repository": {
+    "type": "git",
+    "url": "nope"
+  },
+  "keywords": [
+    "insurance"
+  ],
+  "author": "Velja",
+  "license": "",
+  "dependencies": {
+    "browser-sync": "^2.26.12",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-sass": "^4.1.0",
+    "imagemin-pngquant": "^9.0.1",
+    "sassdoc": "^2.7.3"
+  }
+}
