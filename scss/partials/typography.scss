@@ -14,8 +14,13 @@ h3 {
 }
 
 
+h4 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
 p {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .white {
@@ -32,10 +37,23 @@ p {
     
 }
 
+.green {
+    color: #65E4A3;
+}
+
 
 span {
     font-size: 13px;
     
+}
+
+
+.title_format {
+    max-width: 800px;
+    margin: 0 auto;
+    p{
+        margin: 20px 0 ;
+    }    
 }
 
 @media (min-width: 992px) {
