@@ -19,6 +19,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
     text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -27,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	
 }
 ol, ul, a {
 	list-style: none;
@@ -52,14 +54,106 @@ table {
 	max-width: 1200px;
 }
 
+
+
 h1,h2,h3,h4,p {
-	font-family: 'Roboto', sans-serif;
 	line-height: 1.2;
 }
 
-a {
-	font-size: 16px;
+.background {
+	&-darck-blue {
+		background-color: #0A2640;
+	}
+	&-grean {
+		background-color: #65E4A3;
+	}
+}
+
+
+.footer_call_to_action {
+	height: 390px;
+}
+
+
+.color {
+	&-grean {
+		color: #4FE9A4;
+	}
+}
+
+
+h1 {
+	font-size: 64px;
+}
+
+h3 {
+	font-size: 48px;
+}
+
+h4 {
+	font-size: 32px;
+}
+
+h5 {
+	font-size: 24px;
+}
+
+.big-font {
+	font-size: 94px;
+}
+
+p {
+	font-size: 20px;
 }
 
 
 
+.hover-underline-animation-white {
+	display: inline-block;
+	position: relative;
+	color: white;
+  }
+  
+  .hover-underline-animation-white::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: white;
+	transform-origin: bottom right;
+	transition: transform 0.50s ease-out;
+  }
+  
+  .hover-underline-animation-white:hover::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+  }
+
+
+
+  .hover-underline-animation-blue {
+	display: inline-block;
+	position: relative;
+	color: #0A2640;
+  }
+  
+  .hover-underline-animation-blue::after {
+	content: '';
+	position: absolute;
+	width: 50%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #0A2640;
+	transform-origin: bottom right;
+	transition: transform 0.50s ease-out;
+  }
+  
+  .hover-underline-animation-blue:hover::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+  }
