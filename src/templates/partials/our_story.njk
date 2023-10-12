@@ -1,0 +1,12 @@
+{% set ourStory = {
+    title: 'Handshake infographic mass market crowdfunding iteration.',
+    subTitle: 'Our story',
+    text: 'Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. Traction stock user experience deployment beta innovator incubator focus. Sales user experience branding growth hacking holy grail monetization conversion prototype stock network effects. Learning curve network effects return on investment bootstrapping business-to-consumer.'
+}%}
+<section class="{% if pagename == 'aboutV2' %} bg-darkBlue {% else %} bg-white {% endif %}">
+    <div class="md:px-0 px-2.5 max-w-3xl my-24 mx-auto py-32">
+        <p class="text-xl mb-3 {% if pagename == 'aboutV2' %} text-white {% else %} text-gray-500 {% endif %}">{{ ourStory.subTitle }}</p>
+        <h1 class="text-5xl leading-normal mb-8 {% if pagename == 'aboutV2' %} text-white  {% else %} text-black {% endif %}">{{ ourStory.title }}</h1>
+        <p class="text-xl {% if pagename == 'aboutV2' %} text-gray-200  {% else %} text-gray-500 {% endif %}">{{ ourStory.text }}</p>
+    </div>
+</section>

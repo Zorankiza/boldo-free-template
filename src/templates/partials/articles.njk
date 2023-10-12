@@ -1,0 +1,129 @@
+{% set blog = {
+    statement:'We connect our customers with the best, and help them keep up-and stay open.',
+    imgUrl:'./images/webp/blog_img.webp',
+    btnText:'Load more',
+    btnUrl:'./blog.html',
+    title:'Value proposition accelerator product management venture',
+    subTitle:'Our blog',
+    faq: [
+        {
+            text: 'We connect our customers with the best?',
+            content:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+        },
+                {
+            text: 'Android research & development rockstar? ',
+            content:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+        },        {
+            text: 'We connect our customers with the best?',
+            content:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+        }
+       
+    ],
+    cards: [
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_1.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        },
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_2.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        },
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_3.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        },
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_1.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        },
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_2.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        },
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_3.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        }
+        ,
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_1.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        },
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_2.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        },
+        {
+            name: 'Chandler Bing',
+            date: 'November 22, 2021',
+            text: 'Pitch termsheet backing validation focus release.',
+            category: 'Category',
+            imgUrl: './images/webp/blog_card_img_3.webp',
+            avatarImgUrl: './images/webp/Chandler Bing.webp'
+        }   
+    ]
+}%}
+<section id="blog" class="container w-full max-w-5xl px-2 md:py-0 mx-auto flex flex-col mb-24">
+    <div class="{% if pagename == 'blog'%} hidden {% endif %}">
+        <img class="mx-auto mb-14" src="{{ blog.imgUrl }}">
+        <div class="flex md:flex-row flex-col justify-between mx-auto max-w-6xl mb-40 ">
+            <h3 class="text-4xl max-w-lg leading-normal">{{ blog.statement }}</h3>
+            <div class="flex justify-center items-center">
+                <div class="flex flex-col max-w-lg">
+                    {% for question in blog.faq %}
+                        {% include "partials/articles_faq.njk" %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mb-10">
+        <p class="text-xl text-gray-500 mb-3">{{ blog.subTitle }}</p>
+        <h1 class="text-6xl ">{{ blog.title }}</h1>
+    </div>
+    {# including blog componants #}
+    <div class="flex justify-evenly md:items-stretch md:flex-row flex-col items-center {% if pagename == 'blog'%} flex-row flex-wrap my-24 {% else %} flex-col {% endif %}">
+        {% for cards in blog.cards %}
+            {% if loop.index < numberOfArticles %}
+                {% include "partials/articles_components.njk" %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="flex justify-center items-center">
+        <a class="" href="blog.html#blog">
+        <button class="mx-auto lg:mx-6 hover:underline text-darkBlue border-darkBlue border-2  font-bold rounded-full my-6 py-4 px-14 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">{{ blog.btnText }}</button>
+        </a>
+    </div>
+</section>

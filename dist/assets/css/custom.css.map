@@ -1,0 +1,1 @@
+{"version":3,"sources":["custom.scss"],"names":[],"mappings":"AACA,UACI,YACA","file":"custom.css","sourcesContent":["\n.hero_img {\n    width: 500px;\n    height: 430px;\n}\n\n\n\n"]}

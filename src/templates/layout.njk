@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta name="viewport"
+        content="width=device-width; height=device-height; maximum-scale=1.4; initial-scale=1.0; user-scalable=yes"/>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>
+            {% if title %}
+                {{ title }} | TailwindCSS Layout with Nunjucks
+        {% else %}
+        TailwindCSS Layout with Nunjucks
+        {% endif %}
+        </title>
+
+        <!-- Tailwind CSS, gets compiled when you run  `npm run build`  -->
+        {# <link rel="stylesheet" href="assets/css/tailwind.css"> #}
+        <link rel="stylesheet" href="assets/css/min/tailwind.min.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="assets/css/min/custom.min.css">
+
+        <script async src="/assets/js/jquery-3.4.1.min.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+        <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet"/>
+
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    </head>
+
+    <body class="leading-normal tracking-normal text-gray " style="font-family: 'Source Sans Pro', sans-serif;">
+
+        <!-- Navigation -->
+        {% include 'partials/nav.njk' %}
+
+    
+
+        <!-- Page Content -->
+
+        {% block maincontent %}
+           
+        {% endblock maincontent %}
+
+        {% include 'partials/footer.njk' %}
+
+        {% block js %}{% endblock %}
+
+        <script>
+            $(document).ready(function () {
+
+                // Check for click events on the navbar burger icon
+                $(".navbar-burger").click(function () {
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    $(".navbar-burger").toggleClass("is-active");
+                    $(".navbar-menu").toggleClass("is-active");
+
+                });
+            });
+        </script>
+    </body>
+
+</html>

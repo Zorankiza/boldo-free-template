@@ -1,0 +1,34 @@
+{%set heroAbout = {
+    title:'We love. to make great things, things that matter',
+    subTitle:'About',
+    text:'Funding handshake buyer business-to-business metrics iPad partnership. First mover advantage innovator success deployment non-disclosure',
+    imgGridUrlLeftTop:'./images/webp/hero_img_1.webp',
+    imgGridUrlLeftBottom:'./images/webp/hero_img_2.webp',
+    imgGridUrlCenter:'./images/webp/hero_img_3.webp',
+    imgGridUrlRightTop:'./images/webp/hero_img_4.webp',
+    imgGridUrlRightBottom:'./images/webp/hero_img_5.webp'
+}%}
+<section class="hero mb-6">
+    <div class="pt-14 md:px-0 px-2.5 pb-40 {% if pagename =='aboutV2'%} bg-lightGreen text-darkBlue {% else %} bg-darkBlue text-white {% endif %}">
+        <div class=" container mx-auto flex {% if pagename == 'aboutV2'%} flex-col md:flex-row max-w-7xl text-darkBlue {% else %} flex-col text-center max-w-3xl text-gray-200 {% endif %}}">
+            <div class="">
+                <p class="text-xl mb-3">{{ heroAbout.subTitle }}</p>
+                <h1 class="text-6xl  mb-3">{{ heroAbout.title }}</h1>
+            </div>
+            <p class="text-base">{{ heroAbout.text }}</p>
+        </div>
+    </div>
+    <div class="container md:px-0 px-2.5 max-w-6xl mx-auto -mt-20 mb-32 items-stretch flex md:flex-row flex-col justify-around {% if pagename == 'aboutV2'%} hidden {% else %} block {% endif%}">
+        <div class="flex flex-col justify-between">
+            <img class="md:mb-0 mb-3" src="{{ heroAbout.imgGridUrlLeftTop }}">
+            <img class="md:mb-0 mb-3" src="{{ heroAbout.imgGridUrlLeftBottom }}">
+        </div>
+        <div>
+            <img class="md:mb-0 mb-3" src="{{ heroAbout.imgGridUrlCenter }}">
+        </div>
+        <div class="flex flex-col justify-between">
+            <img class="md:mb-0 mb-3" src="{{ heroAbout.imgGridUrlRightTop }}">
+            <img class="md:mb-0 mb-3" src="{{ heroAbout.imgGridUrlRightBottom }}">
+        </div>
+    </div>
+</section>

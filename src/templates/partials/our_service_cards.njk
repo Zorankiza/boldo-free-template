@@ -1,0 +1,13 @@
+<div class="max-w-xs flex flex-col justify-between">
+    <div>
+        <img src="{{ service.imgUrl }}" alt="" class="border rounded-2xl mb-6">
+        <h3 class="mb-3 text-2xl">{{ service.title }}</h3>
+        <p class="mb-7 text-xl {% if pagename == 'homeV2' %} text-white {% else %} text-gray-500 {% endif %} ">{{ service.text }}</p>
+    </div>
+    <div>
+        <a href="{{ service.url }}" class="border-b pb-3 inline-flex items-center mb-3 mt-auto font-bold {% if pagename == 'homeV2' %} border-white {% else %} border-gray-700 {% endif %} ">
+            <span class="mr-3 text-xl">{{ service.buttonText }}</span> <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M1 1L8 8L1 15" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+</div>

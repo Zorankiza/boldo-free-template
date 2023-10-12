@@ -1,0 +1,12 @@
+{% extends "layout.njk" %}
+
+{% set title = 'HomeV2' %}
+{% set pagename = 'homeV2' %}
+{% set numberOfArticles = 4 %}
+
+{% block maincontent %}
+    {% include 'partials/hero.njk' %}
+    {% include 'partials/our_service.njk' %}
+    {% include 'partials/testemonial.njk' %}
+    {% include 'partials/articles.njk' %}
+{% endblock maincontent%}

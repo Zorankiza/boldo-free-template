@@ -1,0 +1,42 @@
+{% set blogContent = {
+    title:'Value proposition accelerator product management venture',
+    subTitle:'Our Blog',
+    statements: [
+        {
+            commitment:'We are ',
+            commitmentTextGreen:'commited.',
+            text:'Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. '
+        },
+        {
+            commitment:'We are ',
+            commitmentTextGreen:'responsible.',
+            text:'Mass market iPhone buzz conversion analytics stock iteration responsive web design user experience business plan handshake. Return on investment seed round MVP backing supply chain. '
+        },
+        {
+            commitment:'We aim for ',
+            commitmentTextGreen:'progress.',
+            text:'Bootstrapping rockstar first mover advantage business model canvas alpha deployment launch party beta facebook metrics gamification growth hacking customer focus. '
+        }
+    ]
+    
+}%}
+<section class="bg-darkBlue mb-32 py-32">
+    <div class=" max-w-6xl mx-auto text-white px-8">
+        <div class=" text-center border-b-2 border-gray-300 mb-20">
+            <p class="text-xl mb-3">{{ blogContent.subTitle }}</p>
+            <h3 class="text-5xl leading-normal mb-16">{{blogContent.title}}</h3>
+        </div>
+        <div class=" flex flex-col">
+                {% for statement in blogContent.statements%}
+                <div class="flex md:flex-row flex-col mb-20 justify-between">
+                    <div class="mb-5">
+                            <h3 class="text-5xl">{{ statement.commitment }}<span class="text-lightGreen">{{ statement.commitmentTextGreen }}</span></h3>
+                    </div>
+                    <div class="md:max-w-1/2">
+                        <p class="text-xl text-gray-300">{{ statement.text }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta name="viewport"
+        content="width=device-width; height=device-height; maximum-scale=1.4; initial-scale=1.0; user-scalable=yes"/>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>
+            
+                HomeV2 | TailwindCSS Layout with Nunjucks
+        
+        </title>
+
+        <!-- Tailwind CSS, gets compiled when you run  `npm run build`  -->
+        
+        <link rel="stylesheet" href="assets/css/min/tailwind.min.css?v=139418868941ff0fab62371f0b1df8c7">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="assets/css/min/custom.min.css?v=139418868941ff0fab62371f0b1df8c7">
+
+        <script async src="/assets/js/jquery-3.4.1.min.js?v=139418868941ff0fab62371f0b1df8c7"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+        <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js?v=139418868941ff0fab62371f0b1df8c7"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js?v=139418868941ff0fab62371f0b1df8c7"></script>
+        <![endif]-->
+
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&v=139418868941ff0fab62371f0b1df8c7" rel="stylesheet"/>
+
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css?v=139418868941ff0fab62371f0b1df8c7"/>
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css?v=139418868941ff0fab62371f0b1df8c7"/>
+    </head>
+
+    <body class="leading-normal tracking-normal text-gray " style="font-family: 'Source Sans Pro', sans-serif;">
+
+        <!-- Navigation -->
+        <!-- declaring var in Nunjucks: use `set` keyword -->
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainnavigation">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="mainnavigation" class="navbar-menu">
+        <div
+            class="navbar-start"><!-- for loop in Nunjucks -->
+        </div>
+    </div>
+</nav>
+
+<nav id="header" class=" px-10  pt-14  bg-white text-darkBlue  ">
+    <div class="w-full container mx-auto flex flex-wrap items-center max-w-7xl justify-between mt-0 py-2">
+        <div class="">
+            <a href="index.html" class=" text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl " href="">
+                
+                    <svg width="156" height="41" viewBox="0 0 156 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M38.7775 37V5.86H51.1254C53.2302 5.86 54.953 6.28529 56.2938 7.13587C57.6489 7.97204 58.6509 9.04608 59.2996 10.358C59.9628 11.6699 60.2944 13.0251 60.2944 14.4235C60.2944 16.1391 59.8835 17.5952 59.0618 18.7917C58.2544 19.9883 57.1515 20.7957 55.7531 21.2137V20.1325C57.7138 20.5794 59.1987 21.5093 60.2079 22.9221C61.2315 24.335 61.7433 25.9424 61.7433 27.7445C61.7433 29.5898 61.39 31.2045 60.6836 32.5885C59.9772 33.9725 58.9248 35.0537 57.5264 35.8322C56.1424 36.6107 54.4268 37 52.3796 37H38.7775ZM44.054 32.0911H51.7309C52.6391 32.0911 53.4537 31.9109 54.1745 31.5505C54.8953 31.1757 55.4576 30.6567 55.8613 29.9935C56.2793 29.3159 56.4884 28.5158 56.4884 27.5931C56.4884 26.757 56.3082 26.0073 55.9478 25.3441C55.5873 24.681 55.0611 24.1547 54.3691 23.7655C53.6771 23.3618 52.8482 23.16 51.8823 23.16H44.054V32.0911ZM44.054 18.2944H51.0605C51.8102 18.2944 52.4805 18.1502 53.0716 17.8619C53.6627 17.5735 54.1313 17.1482 54.4773 16.586C54.8233 16.0237 54.9963 15.3317 54.9963 14.51C54.9963 13.4287 54.6503 12.5277 53.9583 11.8069C53.2663 11.086 52.3003 10.7256 51.0605 10.7256H44.054V18.2944ZM76.3773 37.6488C74.0418 37.6488 72.0018 37.1225 70.2574 36.0701C68.513 35.0177 67.1578 33.5688 66.1919 31.7235C65.2404 29.8637 64.7647 27.7301 64.7647 25.3225C64.7647 22.8717 65.2548 20.7236 66.2352 18.8782C67.2155 17.0329 68.5779 15.5912 70.3223 14.5532C72.0667 13.5152 74.085 12.9962 76.3773 12.9962C78.7272 12.9962 80.7744 13.5225 82.5188 14.5749C84.2632 15.6273 85.6184 17.0834 86.5843 18.9431C87.5502 20.7885 88.0332 22.9149 88.0332 25.3225C88.0332 27.7445 87.543 29.8854 86.5627 31.7451C85.5968 33.5905 84.2416 35.0393 82.4972 36.0917C80.7528 37.1297 78.7128 37.6488 76.3773 37.6488ZM76.3773 32.7615C78.4533 32.7615 79.9959 32.0695 81.005 30.6855C82.0142 29.3015 82.5188 27.5138 82.5188 25.3225C82.5188 23.0591 82.007 21.257 80.9834 19.9162C79.9598 18.5611 78.4245 17.8835 76.3773 17.8835C74.9789 17.8835 73.8255 18.2007 72.9173 18.835C72.0235 19.4549 71.3603 20.3271 70.9278 21.4516C70.4953 22.5617 70.279 23.852 70.279 25.3225C70.279 27.5859 70.7908 29.3952 71.8144 30.7504C72.8524 32.0911 74.3734 32.7615 76.3773 32.7615ZM93.2303 37V5.21125H98.4419V37H93.2303ZM114.283 37.6488C112.135 37.6488 110.261 37.1081 108.661 36.0269C107.06 34.9456 105.821 33.4751 104.941 31.6154C104.062 29.7556 103.622 27.658 103.622 25.3225C103.622 22.9582 104.062 20.8533 104.941 19.008C105.835 17.1482 107.097 15.685 108.726 14.6181C110.355 13.5369 112.272 12.9962 114.478 12.9962C116.698 12.9962 118.558 13.5369 120.057 14.6181C121.571 15.685 122.717 17.1482 123.495 19.008C124.274 20.8677 124.663 22.9726 124.663 25.3225C124.663 27.6436 124.274 29.7412 123.495 31.6154C122.717 33.4751 121.556 34.9456 120.014 36.0269C118.471 37.1081 116.561 37.6488 114.283 37.6488ZM115.083 32.9777C116.482 32.9777 117.606 32.6606 118.457 32.0262C119.322 31.3775 119.949 30.4765 120.338 29.3231C120.742 28.1698 120.944 26.8362 120.944 25.3225C120.944 23.7943 120.742 22.4608 120.338 21.3219C119.949 20.1685 119.336 19.2747 118.5 18.6404C117.664 17.9916 116.583 17.6672 115.256 17.6672C113.858 17.6672 112.705 18.0132 111.796 18.7052C110.888 19.3828 110.218 20.3055 109.785 21.4732C109.353 22.6266 109.136 23.9097 109.136 25.3225C109.136 26.7497 109.346 28.0472 109.764 29.215C110.196 30.3683 110.852 31.2838 111.731 31.9614C112.611 32.639 113.728 32.9777 115.083 32.9777ZM120.944 37V20.6082H120.295V5.86H125.55V37H120.944ZM141.928 37.6488C139.593 37.6488 137.553 37.1225 135.808 36.0701C134.064 35.0177 132.709 33.5688 131.743 31.7235C130.791 29.8637 130.315 27.7301 130.315 25.3225C130.315 22.8717 130.806 20.7236 131.786 18.8782C132.766 17.0329 134.129 15.5912 135.873 14.5532C137.617 13.5152 139.636 12.9962 141.928 12.9962C144.278 12.9962 146.325 13.5225 148.07 14.5749C149.814 15.6273 151.169 17.0834 152.135 18.9431C153.101 20.7885 153.584 22.9149 153.584 25.3225C153.584 27.7445 153.094 29.8854 152.113 31.7451C151.148 33.5905 149.792 35.0393 148.048 36.0917C146.304 37.1297 144.264 37.6488 141.928 37.6488ZM141.928 32.7615C144.004 32.7615 145.547 32.0695 146.556 30.6855C147.565 29.3015 148.07 27.5138 148.07 25.3225C148.07 23.0591 147.558 21.257 146.534 19.9162C145.511 18.5611 143.975 17.8835 141.928 17.8835C140.53 17.8835 139.376 18.2007 138.468 18.835C137.574 19.4549 136.911 20.3271 136.479 21.4516C136.046 22.5617 135.83 23.852 135.83 25.3225C135.83 27.5859 136.342 29.3952 137.365 30.7504C138.403 32.0911 139.924 32.7615 141.928 32.7615Z" fill="#0A2640"/><path d="M0 20.5H16.2851C21.0522 20.5 24.9167 24.3645 24.9167 29.1316C24.9167 33.8987 21.0522 37.7632 16.2851 37.7632H0V20.5Z" fill="#0A2640"/><path d="M0 5.39453H10.8597C14.435 5.39453 17.3333 8.2929 17.3333 11.8682C17.3333 15.4435 14.435 18.3419 10.8597 18.3419H0V5.39453Z" fill="#0A2640"/>
+                    </svg>
+                
+            </a>
+        </div>
+        <div class="block lg:hidden pr-4">
+            <button id="nav-toggle" class="flex items-center p-1 text-white  focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                <svg class=" h-6 w-6  fill-darkBlue" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent p-4 lg:p-0 z-20" id="nav-content">
+            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                
+                    <li class=" mr-3 ">
+                        <a href="blog.html" class=" md:py-2 md:px-10 
+                             
+                                 hover:text-darkBlue hover:underline  underline-offset-4  
+                             ">Blog</a>
+                    </li>
+                
+                    <li class=" mr-3 ">
+                        <a href="homeV2.html" class=" md:py-2 md:px-10 
+                            
+                                border-darkBlue text-darkBlue inline-block  md:border md:rounded-full 
+                             ">HomeV2</a>
+                    </li>
+                
+                    <li class=" mr-3 ">
+                        <a href="about.html" class=" md:py-2 md:px-10 
+                             
+                                 hover:text-darkBlue hover:underline  underline-offset-4  
+                             ">About</a>
+                    </li>
+                
+                    <li class=" mr-3 ">
+                        <a href="aboutV2.html" class=" md:py-2 md:px-10 
+                             
+                                 hover:text-darkBlue hover:underline  underline-offset-4  
+                             ">AboutV2</a>
+                    </li>
+                
+            </ul>
+            <button id="navAction" class="   bg-white   text-darkBlue mx-auto lg:mx-0 hidden lg:block hover:underline   font-bold rounded-full mt-4 lg:mt-0 py-2 px-10  focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Log In
+            </button>
+        </div>
+    </div>
+</nav>
+
+    
+
+        <!-- Page Content -->
+
+        
+    
+<div class="py-16 px-10  bg-white ">
+  <div class="max-w-7xl container mx-auto">
+    <div class="flex justify-between align-centar flex-wrap flex-col md:flex-row mb-14 ">
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-cetar text-center md:text-left  text-black ">
+            <h1 class="my-4 text-5xl leading-tight ">Save time by building fast with Boldo Template</h1>
+            <p class="leading-normal text-2xl mb-8  text-gray-400 ">Funding handshake buyer business-to-business metrics iPad partnership. First mover advantage innovator success deployment non-disclosure</p>
+            <div class='flex-row'>
+              <button class="mx-auto lg:mx-0 hover:underline font-bold rounded-full my-6 py-4 px-14 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out
+                 text-white bg-darkBlue 
+              ">By tamplate</button>
+              <button class="mx-auto lg:mx-6 hover:underline border-2  font-bold rounded-full my-6 py-4 px-14 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out
+                 text-darkBlue border-darkBlue 
+              ">Explore</button>
+            </div>
+        </div>
+        <div class="">
+            <img class="hero_img w-full md:w-4/5 z-50" src="./images/webp/hero graphics.webp"/>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="flex justify-center  bg-white ">
+   <img class="" src=" ./images/webp/logoWallDarck.webp " >
+</div>
+    
+<section id="services" class="my-20">
+    <div class=" bg-darkBlue text-white   py-20">
+        <div class="container w-full max-w-6xl mx-auto text-center mb-24">
+                <p  class="text-xl mb-3  text-gray-300 ">Our Services</p>
+                <h1 class="text-5xl max-w-3xl mx-auto  ">Handshake infographic mass market crowdfunding iteration.s</h1>
+        </div>
+        
+        <div class="container max-w-6xl mx-auto flex  flex-col md:flex-row items-center md:items-stretch justify-between ">
+            
+                <div class="max-w-xs flex flex-col justify-between">
+    <div>
+        <img src="https://picsum.photos/300/350" alt="" class="border rounded-2xl mb-6">
+        <h3 class="mb-3 text-2xl">Cool feature title</h3>
+        <p class="mb-7 text-xl  text-white  ">Learning curve network effects return on investment.</p>
+    </div>
+    <div>
+        <a href="#" class="border-b pb-3 inline-flex items-center mb-3 mt-auto font-bold  border-white  ">
+            <span class="mr-3 text-xl">Explore page</span> <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M1 1L8 8L1 15" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+</div>
+            
+                <div class="max-w-xs flex flex-col justify-between">
+    <div>
+        <img src="https://picsum.photos/300/350" alt="" class="border rounded-2xl mb-6">
+        <h3 class="mb-3 text-2xl">Cool feature title 2</h3>
+        <p class="mb-7 text-xl  text-white  ">Learning curve network effects return on investment. Learning curve network effects return on investment.</p>
+    </div>
+    <div>
+        <a href="#" class="border-b pb-3 inline-flex items-center mb-3 mt-auto font-bold  border-white  ">
+            <span class="mr-3 text-xl">Explore page</span> <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M1 1L8 8L1 15" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+</div>
+            
+                <div class="max-w-xs flex flex-col justify-between">
+    <div>
+        <img src="https://picsum.photos/300/350" alt="" class="border rounded-2xl mb-6">
+        <h3 class="mb-3 text-2xl">Cool feature title 3</h3>
+        <p class="mb-7 text-xl  text-white  ">Learning curve network. Learning curve network effects return on investment.</p>
+    </div>
+    <div>
+        <a href="#" class="border-b pb-3 inline-flex items-center mb-3 mt-auto font-bold  border-white  ">
+            <span class="mr-3 text-xl">Explore page</span> <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M1 1L8 8L1 15" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </div>
+</div>
+            
+        </div>
+    </div>
+    <div class="px-2 md:py-32">
+        <div class="container max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center  mb-32">
+    <div class="flex justify-center flex-col md:flex-none">
+        <img src="./images/webp/sttatistic_img.webp">
+        <img class="md:-mt-80 -mt-40 md:ml-40" src="./images/webp/statistic.webp">
+    </div>
+    <div class="flex flex-col max-w-lg md:ml-40">
+        <h4 class="text-4xl mb-10 leading-normal">We connect our customers with the best, and help them keep up-and stay open.</h4>
+            <div class="flex  items-center  mb-6">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="18" fill="#0A2640"/><path d="M26 12L15 23L10 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p  class="text-xl ml-7 ">We connect our customers with the best.</p>
+            </div>
+
+            <div class="flex  items-center mb-6">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="18" fill="#0A2640"/><path d="M26 12L15 23L10 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="text-xl ml-7 ">Advisor success customer launch party</p>
+            </div>
+
+            <div class="flex  items-center  mb-14">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="18" fill="#0A2640"/><path d="M26 12L15 23L10 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="text-xl ml-7 ">Business-to-consumer long tail.</p>
+            </div>
+
+            <div class="  ">
+                <button class=" mx-auto  hover:underline text-white bg-darkBlue  font-bold rounded-full  py-4 px-14 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">Start now</button>
+            </div>
+    </div>
+</div>
+
+        <div class="container max-w-6xl  mx-auto flex md:flex-row-reverse flex-col-reverse  justify-center items-center">
+    <div class="flex justify-center flex-col md:flex-none">
+        <img src="./images/webp/sttatistic_img_2.webp">
+        <img class=" md:-mt-80 -mt-40 md:mr-40" src="./images/webp/sttatistic_2.webp">
+    </div>
+    <div class="flex flex-col max-w-lg md:mr-40">
+        <h4 class="text-4xl leading-normal mb-10">We connect our customers with the best, and help them keep up-and stay open.</h4>
+        <div class="flex  items-center shadow-2xl hover:bg-darkBlue  hover:text-white text-darkBlue py-6 px-5 mb-6">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.24 14.24C23.3658 13.1142 23.9983 11.5872 23.9983 9.99504C23.9983 8.40285 23.3658 6.87588 22.24 5.75004C21.1142 4.62419 19.5872 3.9917 17.995 3.9917C16.4028 3.9917 14.8758 4.62419 13.75 5.75004L7 12.5V21H15.5L22.24 14.24Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 10L4 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.5 17H11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p  class="text-xl ml-7 ">We connect our customers with the best.</p>
+    </div>
+    <div class="flex  items-center mb-6  hover:bg-darkBlue  hover:text-white text-darkBlue  shadow-2xl py-6 px-5">
+        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_62_553)"><path d="M1.77502 12.6543C1.77502 12.6543 5.77502 4.6543 12.775 4.6543C19.775 4.6543 23.775 12.6543 23.775 12.6543C23.775 12.6543 19.775 20.6543 12.775 20.6543C5.77502 20.6543 1.77502 12.6543 1.77502 12.6543Z" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.775 15.6543C14.4319 15.6543 15.775 14.3112 15.775 12.6543C15.775 10.9974 14.4319 9.6543 12.775 9.6543C11.1182 9.6543 9.77502 10.9974 9.77502 12.6543C9.77502 14.3112 11.1182 15.6543 12.775 15.6543Z" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_62_553"><rect width="24" height="24" fill="white" transform="translate(0.775024 0.654297)"/></clipPath></defs>
+        </svg>
+        <p class="text-xl ml-7 ">Advisor success customer launch party</p>
+    </div>
+    <div class="flex  items-center mb-14  hover:bg-darkBlue  hover:text-white text-darkBlue  shadow-2xl py-6 px-5">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_62_578)"><path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 1V3" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21V23" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.22 4.21997L5.64 5.63997" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.36 18.3601L19.78 19.7801" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 12H3" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12H23" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.22 19.7801L5.64 18.3601" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.36 5.63997L19.78 4.21997" stroke="#0A2640" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_62_578"><rect width="24" height="24" fill="white"/></clipPath></defs>
+        </svg>
+        <p class="text-xl ml-7 ">Business-to-consumer long tail.</p>
+    </div>
+
+</div>
+    </div>
+</section>
+    
+<section id="testemonial" class="bg-darkBlue px-2 md:py-0" >
+    <div class="bg-darkBlue my-24 py-24 max-w-5xl container mx-auto">
+        <div class="flex justify-between mb-20 flex-col md:flex-row items-center">
+            <h1 class="text-5xl text-white md:max-w-1/2 leading-normal">An enterprise template to ramp up your company website</h1>
+            <div class="mt-10">
+                <div class=" hidden md:flex ">
+                    <div class=" prev-btn cursor-pointer bg-white px-4 py-4 border rounded-full mr-7">
+                        <svg width="36" height="39" viewBox="0 0 36 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.5 18L7.5 18" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 28.5L7.5 18L18 7.5" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class=" next-btn cursor-pointer bg-white px-4 py-4 border rounded-full">
+                        <svg width="36" height="39" viewBox="0 0 36 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5 21H28.5" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 10.5L28.5 21L18 31.5" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="slider cursor-grabbing flex md:flex-row flex-col container justify-center md:justify-between items-center md:items-baseline">
+            
+                <div class="mx-5 bg-white border rounded-lg max-w-xs py-10 px-10 mb-10 md:mb-0">
+    <p class="text-2xl mb-10">“Buyer buzz partner network disruptive non-disclosure agreement business”</p>
+    <div class="flex">
+        <img src="./images/webp/testemonial_img.webp">
+        <div class="ml-4">
+            <h3 class="font-bold">Albus Dumbledore</h3>
+            <p>Manager @ Howarts</p>
+        </div>
+    </div>
+</div>
+            
+                <div class="mx-5 bg-white border rounded-lg max-w-xs py-10 px-10 mb-10 md:mb-0">
+    <p class="text-2xl mb-10">“Learning curve infrastructure value proposition advisor strategy user experience hypotheses investor.”</p>
+    <div class="flex">
+        <img src="./images/webp/testemonial_img_2.webp">
+        <div class="ml-4">
+            <h3 class="font-bold">Severus Snape</h3>
+            <p>Manager @ Slytherin</p>
+        </div>
+    </div>
+</div>
+            
+                <div class="mx-5 bg-white border rounded-lg max-w-xs py-10 px-10 mb-10 md:mb-0">
+    <p class="text-2xl mb-10">“Release facebook responsive web design business model canvas seed money monetization.”</p>
+    <div class="flex">
+        <img src="./images/webp/testemonial_img_3.webp">
+        <div class="ml-4">
+            <h3 class="font-bold">Harry Potter</h3>
+            <p>Team Leader @ Gryffindor</p>
+        </div>
+    </div>
+</div>
+            
+                <div class="mx-5 bg-white border rounded-lg max-w-xs py-10 px-10 mb-10 md:mb-0">
+    <p class="text-2xl mb-10">“Learning curve infrastructure value proposition advisor strategy user experience hypotheses investor.”</p>
+    <div class="flex">
+        <img src="./images/webp/testemonial_img_2.webp">
+        <div class="ml-4">
+            <h3 class="font-bold">Severus Snape</h3>
+            <p>Manager @ Slytherin</p>
+        </div>
+    </div>
+</div>
+            
+                <div class="mx-5 bg-white border rounded-lg max-w-xs py-10 px-10 mb-10 md:mb-0">
+    <p class="text-2xl mb-10">“Learning curve infrastructure value proposition advisor strategy user experience hypotheses investor.”</p>
+    <div class="flex">
+        <img src="./images/webp/testemonial_img_2.webp">
+        <div class="ml-4">
+            <h3 class="font-bold">Severus Snape</h3>
+            <p>Manager @ Slytherin</p>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+</div>
+</section> 
+    
+<section id="blog" class="container w-full max-w-5xl px-2 md:py-0 mx-auto flex flex-col mb-24">
+    <div class="">
+        <img class="mx-auto mb-14" src="./images/webp/blog_img.webp">
+        <div class="flex md:flex-row flex-col justify-between mx-auto max-w-6xl mb-40 ">
+            <h3 class="text-4xl max-w-lg leading-normal">We connect our customers with the best, and help them keep up-and stay open.</h3>
+            <div class="flex justify-center items-center">
+                <div class="flex flex-col max-w-lg">
+                    
+                        <button class="group focus:outline-none mb-2 border-b border-gray-300">
+    <div class="flex items-center justify-between h-12 p-3 font-semibold hover:bg-gray-200">
+        <span class="truncate">We connect our customers with the best?</span>
+        <svg class="group-focus:rotate-180 duration-300" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="14" fill="#0A2640"/><path d="M8 12L14 18L20 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-96">
+        <a class="flex items-center px-4 text-sm hover:bg-gray-200" href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</a>
+    </div>
+</button>		
+                    
+                        <button class="group focus:outline-none mb-2 border-b border-gray-300">
+    <div class="flex items-center justify-between h-12 p-3 font-semibold hover:bg-gray-200">
+        <span class="truncate">Android research &amp; development rockstar? </span>
+        <svg class="group-focus:rotate-180 duration-300" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="14" fill="#0A2640"/><path d="M8 12L14 18L20 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-96">
+        <a class="flex items-center px-4 text-sm hover:bg-gray-200" href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</a>
+    </div>
+</button>		
+                    
+                        <button class="group focus:outline-none mb-2 border-b border-gray-300">
+    <div class="flex items-center justify-between h-12 p-3 font-semibold hover:bg-gray-200">
+        <span class="truncate">We connect our customers with the best?</span>
+        <svg class="group-focus:rotate-180 duration-300" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="14" fill="#0A2640"/><path d="M8 12L14 18L20 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="max-h-0 overflow-hidden duration-300 group-focus:max-h-96">
+        <a class="flex items-center px-4 text-sm hover:bg-gray-200" href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</a>
+    </div>
+</button>		
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mb-10">
+        <p class="text-xl text-gray-500 mb-3">Our blog</p>
+        <h1 class="text-6xl ">Value proposition accelerator product management venture</h1>
+    </div>
+    
+    <div class="flex justify-evenly md:items-stretch md:flex-row flex-col items-center  flex-col ">
+        
+            
+                <div class="flex flex-col max-w-xs md:mb-20 mb-10 ">
+    <div class="mb-6">
+        <img src="./images/webp/blog_card_img_1.webp">
+    </div>
+    <div>
+        <div class="flex mb-3">
+            <p class="text-darkBlue font-bold text-base mr-3">Category</p>
+            <p class="text-base text-gray-700"></p>
+        </div>
+        <div>
+            <p class="text-xl mb-5" >Pitch termsheet backing validation focus release.</p>
+        </div>
+        <div class="flex items-center mt-auto ">
+            <img class="mr-3" src="./images/webp/Chandler Bing.webp ">
+            <p>Chandler Bing</p>
+        </div>
+    </div>
+</div>
+            
+        
+            
+                <div class="flex flex-col max-w-xs md:mb-20 mb-10 ">
+    <div class="mb-6">
+        <img src="./images/webp/blog_card_img_2.webp">
+    </div>
+    <div>
+        <div class="flex mb-3">
+            <p class="text-darkBlue font-bold text-base mr-3">Category</p>
+            <p class="text-base text-gray-700"></p>
+        </div>
+        <div>
+            <p class="text-xl mb-5" >Pitch termsheet backing validation focus release.</p>
+        </div>
+        <div class="flex items-center mt-auto ">
+            <img class="mr-3" src="./images/webp/Chandler Bing.webp ">
+            <p>Chandler Bing</p>
+        </div>
+    </div>
+</div>
+            
+        
+            
+                <div class="flex flex-col max-w-xs md:mb-20 mb-10 ">
+    <div class="mb-6">
+        <img src="./images/webp/blog_card_img_3.webp">
+    </div>
+    <div>
+        <div class="flex mb-3">
+            <p class="text-darkBlue font-bold text-base mr-3">Category</p>
+            <p class="text-base text-gray-700"></p>
+        </div>
+        <div>
+            <p class="text-xl mb-5" >Pitch termsheet backing validation focus release.</p>
+        </div>
+        <div class="flex items-center mt-auto ">
+            <img class="mr-3" src="./images/webp/Chandler Bing.webp ">
+            <p>Chandler Bing</p>
+        </div>
+    </div>
+</div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="flex justify-center items-center">
+        <a class="" href="blog.html#blog">
+        <button class="mx-auto lg:mx-6 hover:underline text-darkBlue border-darkBlue border-2  font-bold rounded-full my-6 py-4 px-14 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">Load more</button>
+        </a>
+    </div>
+</section>
+
+
+        
+<!--Footer-->
+<footer class="bg-white max-w-7xl mx-auto">
+    <div class="container mx-auto px-8">
+        <div class="bg-darkBlue rounded-lg mb-20 py-16 flex justify-center items-center flex-col ">
+            <h1 class="text-5xl text-white max-w-2xl font-normal px-2 md:py-0 text-center">An enterprise template to ramp up your company website</h1>
+            <div class="flex items-center mx-auto px-2 md:py-0 flex-col md:flex-row ">
+                <input type="email" placeholder="Your email address" class="bg-white font-bold rounded-full my-6 mr-6 py-4 px-14 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                <button class="mx-auto lg:mx-0 hover:underline bg-lightGreen m-100 text-darkBlue font-bold text-xl rounded-full my-6 py-4 px-14 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"> Start now </button>
+            </div>
+        </div>
+        <div class="w-full flex flex-col md:flex-row  justify-between py-6">
+            <div class="flex-1 max-w-xs text-gray-600 ">
+                <a class="  " href="#">
+                   <svg class="mb-20" width="156" height="41" viewBox="0 0 156 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.7775 37V5.86H51.1254C53.2302 5.86 54.953 6.28529 56.2938 7.13587C57.6489 7.97204 58.6509 9.04608 59.2996 10.358C59.9628 11.6699 60.2944 13.0251 60.2944 14.4235C60.2944 16.1391 59.8835 17.5952 59.0618 18.7917C58.2544 19.9883 57.1515 20.7957 55.7531 21.2137V20.1325C57.7138 20.5794 59.1987 21.5093 60.2079 22.9221C61.2315 24.335 61.7433 25.9424 61.7433 27.7445C61.7433 29.5898 61.39 31.2045 60.6836 32.5885C59.9772 33.9725 58.9248 35.0537 57.5264 35.8322C56.1424 36.6107 54.4268 37 52.3796 37H38.7775ZM44.054 32.0911H51.7309C52.6391 32.0911 53.4537 31.9109 54.1745 31.5505C54.8953 31.1757 55.4576 30.6567 55.8613 29.9935C56.2793 29.3159 56.4884 28.5158 56.4884 27.5931C56.4884 26.757 56.3082 26.0073 55.9478 25.3441C55.5873 24.681 55.0611 24.1547 54.3691 23.7655C53.6771 23.3618 52.8482 23.16 51.8823 23.16H44.054V32.0911ZM44.054 18.2944H51.0605C51.8102 18.2944 52.4805 18.1502 53.0716 17.8619C53.6627 17.5735 54.1313 17.1482 54.4773 16.586C54.8233 16.0237 54.9963 15.3317 54.9963 14.51C54.9963 13.4287 54.6503 12.5277 53.9583 11.8069C53.2663 11.086 52.3003 10.7256 51.0605 10.7256H44.054V18.2944ZM76.3773 37.6488C74.0418 37.6488 72.0018 37.1225 70.2574 36.0701C68.513 35.0177 67.1578 33.5688 66.1919 31.7235C65.2404 29.8637 64.7647 27.7301 64.7647 25.3225C64.7647 22.8717 65.2548 20.7236 66.2352 18.8782C67.2155 17.0329 68.5779 15.5912 70.3223 14.5532C72.0667 13.5152 74.085 12.9962 76.3773 12.9962C78.7272 12.9962 80.7744 13.5225 82.5188 14.5749C84.2632 15.6273 85.6184 17.0834 86.5843 18.9431C87.5502 20.7885 88.0332 22.9149 88.0332 25.3225C88.0332 27.7445 87.543 29.8854 86.5627 31.7451C85.5968 33.5905 84.2416 35.0393 82.4972 36.0917C80.7528 37.1297 78.7128 37.6488 76.3773 37.6488ZM76.3773 32.7615C78.4533 32.7615 79.9959 32.0695 81.005 30.6855C82.0142 29.3015 82.5188 27.5138 82.5188 25.3225C82.5188 23.0591 82.007 21.257 80.9834 19.9162C79.9598 18.5611 78.4245 17.8835 76.3773 17.8835C74.9789 17.8835 73.8255 18.2007 72.9173 18.835C72.0235 19.4549 71.3603 20.3271 70.9278 21.4516C70.4953 22.5617 70.279 23.852 70.279 25.3225C70.279 27.5859 70.7908 29.3952 71.8144 30.7504C72.8524 32.0911 74.3734 32.7615 76.3773 32.7615ZM93.2303 37V5.21125H98.4419V37H93.2303ZM114.283 37.6488C112.135 37.6488 110.261 37.1081 108.661 36.0269C107.06 34.9456 105.821 33.4751 104.941 31.6154C104.062 29.7556 103.622 27.658 103.622 25.3225C103.622 22.9582 104.062 20.8533 104.941 19.008C105.835 17.1482 107.097 15.685 108.726 14.6181C110.355 13.5369 112.272 12.9962 114.478 12.9962C116.698 12.9962 118.558 13.5369 120.057 14.6181C121.571 15.685 122.717 17.1482 123.495 19.008C124.274 20.8677 124.663 22.9726 124.663 25.3225C124.663 27.6436 124.274 29.7412 123.495 31.6154C122.717 33.4751 121.556 34.9456 120.014 36.0269C118.471 37.1081 116.561 37.6488 114.283 37.6488ZM115.083 32.9777C116.482 32.9777 117.606 32.6606 118.457 32.0262C119.322 31.3775 119.949 30.4765 120.338 29.3231C120.742 28.1698 120.944 26.8362 120.944 25.3225C120.944 23.7943 120.742 22.4608 120.338 21.3219C119.949 20.1685 119.336 19.2747 118.5 18.6404C117.664 17.9916 116.583 17.6672 115.256 17.6672C113.858 17.6672 112.705 18.0132 111.796 18.7052C110.888 19.3828 110.218 20.3055 109.785 21.4732C109.353 22.6266 109.136 23.9097 109.136 25.3225C109.136 26.7497 109.346 28.0472 109.764 29.215C110.196 30.3683 110.852 31.2838 111.731 31.9614C112.611 32.639 113.728 32.9777 115.083 32.9777ZM120.944 37V20.6082H120.295V5.86H125.55V37H120.944ZM141.928 37.6488C139.593 37.6488 137.553 37.1225 135.808 36.0701C134.064 35.0177 132.709 33.5688 131.743 31.7235C130.791 29.8637 130.315 27.7301 130.315 25.3225C130.315 22.8717 130.806 20.7236 131.786 18.8782C132.766 17.0329 134.129 15.5912 135.873 14.5532C137.617 13.5152 139.636 12.9962 141.928 12.9962C144.278 12.9962 146.325 13.5225 148.07 14.5749C149.814 15.6273 151.169 17.0834 152.135 18.9431C153.101 20.7885 153.584 22.9149 153.584 25.3225C153.584 27.7445 153.094 29.8854 152.113 31.7451C151.148 33.5905 149.792 35.0393 148.048 36.0917C146.304 37.1297 144.264 37.6488 141.928 37.6488ZM141.928 32.7615C144.004 32.7615 145.547 32.0695 146.556 30.6855C147.565 29.3015 148.07 27.5138 148.07 25.3225C148.07 23.0591 147.558 21.257 146.534 19.9162C145.511 18.5611 143.975 17.8835 141.928 17.8835C140.53 17.8835 139.376 18.2007 138.468 18.835C137.574 19.4549 136.911 20.3271 136.479 21.4516C136.046 22.5617 135.83 23.852 135.83 25.3225C135.83 27.5859 136.342 29.3952 137.365 30.7504C138.403 32.0911 139.924 32.7615 141.928 32.7615Z" fill="#0A2640"/><path d="M0 20.5H16.2851C21.0522 20.5 24.9167 24.3645 24.9167 29.1316C24.9167 33.8987 21.0522 37.7632 16.2851 37.7632H0V20.5Z" fill="#0A2640"/><path d="M0 5.39453H10.8597C14.435 5.39453 17.3333 8.2929 17.3333 11.8682C17.3333 15.4435 14.435 18.3419 10.8597 18.3419H0V5.39453Z" fill="#0A2640"/>
+                    </svg>
+                </a>
+                <p class="mb-16 ">Social media validation business model canvas graphical user interface launch party creative facebook iPad twitter.</p>
+                <p>All rights reserved.</p>
+            </div>
+            
+                <div class="flex flex-col text-gray-600 ">
+                    <p class="uppercase text-black font-bold md:mb-6">Landings</p>
+                    <ul class="list-reset mb-6">
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Home</a>
+                        </li>
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Product</a>
+                        </li>
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Services</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="flex flex-col text-gray-600 ">
+                    <p class="uppercase text-black font-bold md:mb-6">Company</p>
+                    <ul class="list-reset mb-6">
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Home</a>
+                        </li>
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Product</a>
+                        </li>
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Services</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="flex flex-col text-gray-600 ">
+                    <p class="uppercase text-black font-bold md:mb-6">Resources </p>
+                    <ul class="list-reset mb-6">
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Home</a>
+                        </li>
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Product</a>
+                        </li>
+                        
+                        <li class="mt-5 inline-block mr-2 md:block md:mr-0">
+                            <a href="#" class="no-underline hover:underline-offset-1 hover:underline hover:font-bold">Services</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+<!-- jQuery if you need it
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js?v=139418868941ff0fab62371f0b1df8c7"></script>
+  -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js?v=139418868941ff0fab62371f0b1df8c7"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js?v=139418868941ff0fab62371f0b1df8c7"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js?v=139418868941ff0fab62371f0b1df8c7"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".slider").slick({
+                arrows: false,
+                infinite: true,
+                autoplay: false,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            centerMode: true
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            centerMode: true
+                        }
+                    }
+                ]
+            });
+
+            $(".prev-btn").click(function () {
+                $(".slider").slick("slickPrev");
+            });
+
+            $(".next-btn").click(function () {
+                $(".slider").slick("slickNext");
+            });
+        });
+    </script>
+
+<script>
+    var scrollpos = window.scrollY;
+    var header = document.getElementById("header");
+    var navcontent = document.getElementById("nav-content");
+    var navaction = document.getElementById("navAction");
+    var brandname = document.getElementById("brandname");
+    var toToggle = document.querySelectorAll(".toggleColour");
+
+    document.addEventListener("scroll", function () {
+        /* Apply classes for slide in bar */
+        scrollpos = window.scrollY;
+
+        if (scrollpos > 10) {  
+            navaction
+                .classList
+                .add("text-white");
+            //Use to switch toggleColour colours
+            for (var i = 0; i < toToggle.length; i++) {
+                toToggle[i]
+                    .classList
+                    .add("text-gray-800");
+                toToggle[i]
+                    .classList
+                    .remove("text-white");
+            }
+            header
+                .classList
+                .add("shadow");
+            
+            navcontent
+                .classList
+                .remove("bg-gray-100");
+        } else {
+           
+            navaction
+                .classList
+                .remove("gradient");
+            
+            
+            //Use to switch toggleColour colours
+            for (var i = 0; i < toToggle.length; i++) {
+                toToggle[i]
+                    .classList
+                    .add("text-white");
+                toToggle[i]
+                    .classList
+                    .remove("text-gray-800");
+            }
+
+            header
+                .classList
+                .remove("shadow");
+            navcontent
+                .classList
+                .remove("bg-white");
+            navcontent
+                .classList
+                .add("bg-gray-100");
+        }
+    });
+</script>
+<script>
+    /* Toggle dropdown list */
+    /* https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8 */
+
+    var navMenuDiv = document.getElementById("nav-content");
+    var navMenu = document.getElementById("nav-toggle");
+
+    document.onclick = check;
+    function check(e) {
+        var target = (e && e.target) || (event && event.srcElement);
+
+        //Nav Menu
+        if (!checkParent(target, navMenuDiv)) {
+            // click NOT on the menu
+            if (checkParent(target, navMenu)) {
+                // click on the link
+                if (navMenuDiv.classList.contains("hidden")) {
+                    navMenuDiv
+                        .classList
+                        .remove("hidden");
+                } else {
+                    navMenuDiv
+                        .classList
+                        .add("hidden");
+                }
+            } else {
+                // click both outside link and outside menu, hide menu
+                navMenuDiv
+                    .classList
+                    .add("hidden");
+            }
+        }
+    }
+    function checkParent(t, elm) {
+        while (t.parentNode) {
+            if (t == elm) {
+                return true;
+            }
+            t = t.parentNode;
+        }
+        return false;
+    }
+</script>
+
+
+        
+
+        <script>
+            $(document).ready(function () {
+
+                // Check for click events on the navbar burger icon
+                $(".navbar-burger").click(function () {
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    $(".navbar-burger").toggleClass("is-active");
+                    $(".navbar-menu").toggleClass("is-active");
+
+                });
+            });
+        </script>
+    </body>
+
+</html>

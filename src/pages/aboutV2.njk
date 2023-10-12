@@ -1,0 +1,14 @@
+{% extends "layout.njk" %}
+
+{% set title = 'About' %}
+{% set pagename = 'aboutV2' %}
+{% set numberOfComoinentes = 4 %}
+{% set numberOfComoinentesOnV2 = 5 %}
+
+{% block maincontent %}
+    {% include 'partials/hero_about.njk' %} 
+    {% include 'partials/our_numbers.njk' %}
+    {% include 'partials/our_story.njk' %} 
+    {% include 'partials/out_team.njk' %}
+    {% include 'partials/our_blog.njk' %}
+{% endblock maincontent %}

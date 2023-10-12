@@ -1,0 +1,35 @@
+{% set ourNumbers = {
+    subTitle: 'Our numbers',
+    mainTitle: 'Handshake infographic mass market crowdfunding iteration.',
+
+    statusNumbers: [
+        {
+            title: 'Cool feature title',
+            number: '120m'
+        },
+        {
+            title: 'Cool feature title',
+            number: '10.000'
+        },
+         {
+            title: 'Cool feature title',
+            number: '240'
+        }
+      
+    ]
+}%}
+<section class="ourNumbers md:px-0 px-2.5 py-24 {% if pagename == 'aboutV2'%} bg-white {% else %} bg-darkBlue {% endif %}">
+    <div class="mx-auto flex flex-col max-w-5xl container">
+        <div class="flex flex-col items-stretch">
+            <div class="max-w-4xl text-center mx-auto"> 
+                <p class="text-xl {% if pagename == 'aboutV2' %} text-darkBlue {% else %} text-gray-400 mb-3 {% endif %}">{{ ourNumbers.subTitle }}</p>
+                <h1 class="text-5xl mb-20 px-0.5 leading-normal {% if pagename == 'aboutV2' %} text-darkBlue {% else %} text-white {% endif %}">{{ ourNumbers.mainTitle }}</h1>
+            </div>
+            <div class="flex md:flex-row items-center flex-col justify-between">
+                {% for nubmers in ourNumbers.statusNumbers %}
+                        {% include "partials/our_numbers_components.njk" %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

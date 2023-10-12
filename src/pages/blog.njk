@@ -1,0 +1,10 @@
+{% extends "layout.njk" %}
+
+{% set title = 'Blog' %}
+{% set pagename = 'blog' %}
+{% set numberOfArticles = 7 %}
+
+{% block maincontent %}
+    {% include 'partials/blog_page.njk' %}
+    {% include 'partials/articles.njk' %}
+{% endblock maincontent%}

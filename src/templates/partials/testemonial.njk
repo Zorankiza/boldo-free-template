@@ -1,0 +1,65 @@
+{% set testemonial = { 
+    mainTitle: "An enterprise template to ramp up your company website",
+    subTitle: "Our Services",
+    cards: [
+        {
+            name: 'Albus Dumbledore',
+            text: '“Buyer buzz partner network disruptive non-disclosure agreement business”',
+            link: 'Manager @ Howarts',
+            imgUrl: './images/webp/testemonial_img.webp'
+        },
+        {
+            name: 'Severus Snape',
+            text: '“Learning curve infrastructure value proposition advisor strategy user experience hypotheses investor.”',
+            link: 'Manager @ Slytherin',
+            imgUrl: './images/webp/testemonial_img_2.webp'
+        },
+        {
+            name: 'Harry Potter',
+            text: '“Release facebook responsive web design business model canvas seed money monetization.”',
+            link: 'Team Leader @ Gryffindor',
+            imgUrl: './images/webp/testemonial_img_3.webp'
+        },
+                {
+            name: 'Severus Snape',
+            text: '“Learning curve infrastructure value proposition advisor strategy user experience hypotheses investor.”',
+            link: 'Manager @ Slytherin',
+            imgUrl: './images/webp/testemonial_img_2.webp'
+        },
+                {
+            name: 'Severus Snape',
+            text: '“Learning curve infrastructure value proposition advisor strategy user experience hypotheses investor.”',
+            link: 'Manager @ Slytherin',
+            imgUrl: './images/webp/testemonial_img_2.webp'
+        }
+    ]
+}%}
+<section id="testemonial" class="bg-darkBlue px-2 md:py-0" >
+    <div class="bg-darkBlue my-24 py-24 max-w-5xl container mx-auto">
+        <div class="flex justify-between mb-20 flex-col md:flex-row items-center">
+            <h1 class="text-5xl text-white md:max-w-1/2 leading-normal">{{testemonial.mainTitle}}</h1>
+            <div class="mt-10">
+                <div class=" hidden md:flex ">
+                    <div class=" prev-btn cursor-pointer bg-white px-4 py-4 border rounded-full mr-7">
+                        <svg width="36" height="39" viewBox="0 0 36 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.5 18L7.5 18" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 28.5L7.5 18L18 7.5" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class=" next-btn cursor-pointer bg-white px-4 py-4 border rounded-full">
+                        <svg width="36" height="39" viewBox="0 0 36 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5 21H28.5" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 10.5L28.5 21L18 31.5" stroke="#0A2640" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# testemonial cards #}
+        {# TREBA UBACITI SLIDER #}
+        <div class="slider cursor-grabbing flex md:flex-row flex-col container justify-center md:justify-between items-center md:items-baseline">
+            {% for cards in testemonial.cards %}
+                {% include "partials/testemonial_components.njk" %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</section> 

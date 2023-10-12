@@ -1,0 +1,56 @@
+{% set ourTeam = {
+    subTitle: 'Our team',
+    mainTitle:'The leadership team',
+    text:'Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. Traction stock user experience deployment beta innovator incubator focus.',
+    cards: [
+        {
+            title: 'General Manager',
+            name: 'Michael Scott',
+            imgUrl: './images/webp/out_team_img_1.webp'
+        },  
+        {
+            title: 'General Manager',
+            name: 'Dwight Schrute',
+            imgUrl: './images/webp/out_team_img_2.webp'
+        },
+        {
+            title: 'General Manager',
+            name: 'Pam Beetsley',
+            imgUrl: './images/webp/out_team_img_3.webp'
+        },
+        {
+            title: 'General Manager',
+            name: 'Dwight Schrute',
+            imgUrl: './images/webp/out_team_img_2.webp'
+        },
+        {
+            title: 'General Manager',
+            name: 'Pam Beetsley',
+            imgUrl: './images/webp/out_team_img_3.webp'
+        }       
+    ]
+}%}
+<section class="container max-w-5xl md:px-0 px-2.5 mx-auto my-24">
+    <div class="flex flex-col">
+        <div class="max-w-3xl mx-auto mb-12">
+            <p class="text-xl text-gray-500 mb-3">{{ ourTeam.subTitle }}</p>
+            <h1 class="text-5xl mb-5">{{ ourTeam.mainTitle }}</h1>
+            <p class="text-xl text-gray-500">{{ ourTeam.text }}</p>
+        </div>
+        <div class="flex md:flex-row flex-col items-center mt-1 mb-28 justify-between ">
+            {# components #}
+            {% for people in ourTeam.cards %}
+                {% if loop.index < numberOfComoinentes %}
+                    {% include "partials/out_team_comoinentes.njk" %}
+                {% endif %}
+           {% endfor %}
+        </div>
+        <div class="flex flex-row flex-wrap justify-between items-center">
+            {% for people in ourTeam.cards %}
+                {% if loop.index < numberOfComoinentesOnV2 %}
+                    {% include "partials/out_team_comoinentes_small.njk" %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
